@@ -46,5 +46,8 @@ array.forEach(item =>{
 const calculateSum= array.reduce((sum,tot) => sum+tot.price , 0)
   console.log(`The total cost of all product is:${calculateSum}`)
 
-  
+//Part 2 Simple UI in HTML
+  //using (forEach) to loop through the products array and display each product
+
+
 
