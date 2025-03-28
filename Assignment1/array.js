@@ -22,7 +22,18 @@ console.log(array)
 // array.push({name:'Desk',price:150,category:'Furniture'}) this also can work
 
 //Using find() method to get the details of the product"Watch" and display them
+
+const findProduct= array.find(product => product.name==='Watch')
+console.log(findProduct)
   
+// Using map to create an array of names only
 
+const productNames= array.map(items => items.name)
+console.log(productNames)
 
+// Using filter to get all products that cost more than 100
 
+const items= array.filter(product => product.price > 100)
+console.log(items)
+
+//using foreach to display each product'name and price
