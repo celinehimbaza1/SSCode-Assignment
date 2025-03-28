@@ -3,10 +3,38 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SheCanCode Assignment</title>
+    <title>Product List</title>
+   
 </head>
 <body>
-    <h1>list of all products</h1>
- <div></div>  
+    <h2>PRODUCT LIST</h2>
+    <div id="product-list"></div>
+    <script>
+        // JavaScript Array
+        const array = [
+            { name: "Laptop", price: 800, category: "Electronics" },
+            { name: "Phone", price: 500, category: "Electronics" },
+            { name: "Table", price: 200, category: "Furniture" },
+            { name: "Chair", price: 100, category: "Furniture" },
+            { name: "Headphone", price: 50, category: "Electronics" },
+            { name: "Shoes", price: 70, category: "Clothing" },
+            { name: "Jacket", price: 120, category: "Clothing" },
+            { name: "Watch", price: 250, category: "Accessories" },
+            { name: "Backpack", price: 90, category: "Accessories" },
+            { name: "Sofa", price: 600, category: "Furniture" }
+        ];
+
+        // Get the <div> where products will be displayed
+        const productListDiv = document.getElementById("product-list");
+
+        // Loop through each product and create HTML for it
+        array.forEach(prod => {
+            const productItem = document.createElement("p");
+            productItem.textContent = `Product: ${prod.name}, Price: $${prod.price}`;
+
+            // Add the product to the HTML page
+            productListDiv.appendChild(productItem);
+        });
+    </script>
 </body>
 </html>
