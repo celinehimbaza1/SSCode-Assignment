@@ -36,4 +36,15 @@ console.log(productNames)
 const items= array.filter(product => product.price > 100)
 console.log(items)
 
-//using foreach to display each product'name and price
+//using foreach to display each product's name and price
+array.forEach(item =>{
+ console.log (`Product:${item.name},price:$${item.price}`)
+} 
+)
+//using reduce() method to calculate total cost of the products
+
+const calculateSum= array.reduce((sum,tot) => sum+tot.price , 0)
+  console.log(`The total cost of all product is:${calculateSum}`)
+
+  
+
