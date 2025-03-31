@@ -35,7 +35,7 @@ const longestWord = (str) =>
     str.split(/\s+/) // Split the string into words using spaces
         .reduce((longest, current) => current.length > longest.length ? current : longest, "");
 
-console.log(longestWord("Good afternoon"));
+console.log(longestWord("Good evenning"));
 
 //count the number of times a specific letter appears in a string
 
