@@ -104,7 +104,7 @@ console.log(hasProperty(pern, "name"));
 
 //returns the number of properties in an object
 const countProperties = (obj) => Object.keys(obj).length;
-const per = { name: "john", age: 10, city: "Kigali" };
+const per = { name: "john", age: 10, City: "Kigali" };
 const emptyObj = {};
 console.log(countProperties(person));
 console.log(countProperties(emptyObj));
