@@ -148,7 +148,6 @@ const products = [
     { name: "Laptop", category: "Electronics" },
     { name: "Shirt", category: "Clothing" },
     { name: "Phone", category: "Electronics" },
-    { name: "Socks", category: "Clothing" },
 ];
 
 console.log(filterByCategory(products, "Electronics"));
