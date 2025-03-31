@@ -108,3 +108,26 @@ const per = { name: "john", age: 10, city: "Kigali" };
 const emptyObj = {};
 console.log(countProperties(person)); 
 console.log(countProperties(emptyObj));
+
+//Function Composition & Higher-Order Functions
+ //Create a function to reverse and capitalize a string.
+
+const compose = (...fns) => (value) => fns.reduceRight((acc, fn) => fn(acc), value);
+const reverseString = (str) => str.split("").reverse().join("");
+const capitalize = (str) => str.charAt(0).toUpperCase() + str.slice(1).toLowerCase();
+const reverseAndCapitalize = compose(capitalize, reverseString);
+
+console.log(reverseAndCapitalize("hello"));  
+console.log(reverseAndCapitalize("world"));
+
+//a function to double all the even numbers in an array
+const composes = (...fns) => (value) => fns.reduceRight((acc, fn) => fn(acc), value);
+
+const filterEvens = (arr) => arr.filter((num) => num % 2 === 0);
+const doubleNumber = (arr) => arr.map((num) => num * 2);
+
+const doubleEvens = composes(doubleNumber, filterEvens);
+
+console.log(doubleEvens([1, 2, 3, 4, 5, 6]));
+
+//sorts an array of objects by a given key 
