@@ -19,7 +19,7 @@ console.log(`Is this string a polindrome? ${pol}`)
 
 //counting the number of words in a given string
 const wordCount = (str) => str.trim().split(/\s+/).length;
-console.log(`The number of words are`);
+console.log(`The number of words is`);
 console.log(wordCount("Good morning"));
 
 //converts a string to snake_case(using underscore)
