@@ -53,7 +53,7 @@ console.log(doubleNumbers([1, 2, 3, 4]));
 
 // Filter out even numbers:
 const filterOddNumbers = (arr) => arr.filter(num => num % 2 !== 0);
-console.log(filterOddNumbers([1, 2, 3, 4, 5, 6]));
+console.log(filterOddNumbers([1, 2, 3, 4, 5]));
 
 //calculate sum of numbers in an array
 const sum = (arr) => arr.reduce((acc, num) => acc + num, 0);
