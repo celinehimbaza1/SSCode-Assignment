@@ -131,3 +131,51 @@ const doubleEvens = composes(doubleNumber, filterEvens);
 console.log(doubleEvens([1, 2, 3, 4, 5, 6]));
 
 //sorts an array of objects by a given key 
+const sortByKey = (arr, key) => arr.sort((a, b) => a[key] - b[key]);
+const people = [
+  { name: "celine", age: 25 },
+  { name: "arka", age: 10 },
+  { name: "peter", age: 20 },
+];
+
+console.log(sortByKey(people, "age"));
+
+// returns only the products in a specified category
+const filterByCategory = (products, category) => 
+    products.filter(product => product.category === category);
+  
+  const products = [
+    { name: "Laptop", category: "Electronics" },
+    { name: "Shirt", category: "Clothing" },
+    { name: "Phone", category: "Electronics" },
+    { name: "Socks", category: "Clothing" },
+  ];
+  
+  console.log(filterByCategory(products, "Electronics"));
+
+// store results of previous calculations to avoid recomputation
+  // Caching function
+const cacheFunction = (fn) => {
+    const cache = {}; 
+    return (...args) => {
+      const key = args.join(","); 
+      if (cache[key]) {
+        console.log('Returning cached result');
+        return cache[key]; 
+      }
+      const result = fn(...args); 
+      cache[key] = result; 
+      return result;
+    };
+  };
+  
+  // Function to add two numbers
+  const add = (a, b) => a + b;
+  
+
+  const cachedAdd = cacheFunction(add);
+  
+ 
+  console.log(cachedAdd(2, 3)); 
+  console.log(cachedAdd(2, 3));
+ 
