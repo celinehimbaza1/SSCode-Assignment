@@ -92,7 +92,7 @@ console.log(isAdult(person1));
 
 //a function that adds a new property to an object
 const addProperty = (obj, key, value) => ({ ...obj, [key]: value });
-const persn = { name: "Alice", age: 25 };
+const persn = { name: "kenny", age: 35 };
 const updatedPerson = addProperty(persn, "city", "Kigali");
 console.log(persn);
 console.log(updatedPerson);
