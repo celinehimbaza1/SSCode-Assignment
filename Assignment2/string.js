@@ -87,7 +87,7 @@ console.log(fullName(person));
 
 //checks if a person is 18 or older
 const isAdult = (person) => person.age >= 18;
-const person1 = { name: "Alice", age: 20 };
+const person1 = { name: "anne", age: 20 };
 console.log(isAdult(person1));
 
 //a function that adds a new property to an object
