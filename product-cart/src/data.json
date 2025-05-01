@@ -1,0 +1,45 @@
+[
+    {
+      "id": 1,
+      "name": "Running Shoes",
+      "category": "Shoes",
+      "price": 59.99,
+      "image": "https://via.placeholder.com/150?text=Running+Shoes"
+    },
+    {
+      "id": 2,
+      "name": "Leather Boots",
+      "category": "Shoes",
+      "price": 89.99,
+      "image": "https://via.placeholder.com/150?text=Leather+Boots"
+    },
+    {
+      "id": 3,
+      "name": "Gold Necklace",
+      "category": "Accessories",
+      "price": 49.99,
+      "image": "https://via.placeholder.com/150?text=Gold+Necklace"
+    },
+    {
+      "id": 4,
+      "name": "Sunglasses",
+      "category": "Accessories",
+      "price": 19.99,
+      "image": "https://via.placeholder.com/150?text=Sunglasses"
+    },
+    {
+      "id": 5,
+      "name": "Jacket",
+      "category": "Clothes",
+      "price": 69.99,
+      "image": "https://via.placeholder.com/150?text=Denim+Jacket"
+    },
+    {
+      "id": 6,
+      "name": "T-Shirt",
+      "category": "Clothes",
+      "price": 15.99,
+      "image": "https://via.placeholder.com/150?text=T-Shirt"
+    }
+  ]
+  
