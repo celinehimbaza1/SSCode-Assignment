@@ -40,6 +40,13 @@
       "category": "Clothes",
       "price": 15.99,
       "image": "https://via.placeholder.com/150?text=T-Shirt"
-    }
+    },
+    {
+        "id": 7,
+        "name": "Short-Dress",
+        "category": "Clothes",
+        "price": 200,
+        "image": "https://via.placeholder.com/150?text=T-Shirt"
+      }
   ]
   
