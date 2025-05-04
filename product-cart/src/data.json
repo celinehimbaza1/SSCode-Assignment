@@ -1,52 +1,61 @@
 [
     {
       "id": 1,
-      "name": "Running Shoes",
+      "name": "Shoes",
       "category": "Shoes",
-      "price": 59.99,
-      "image": "https://via.placeholder.com/150?text=Running+Shoes"
+      "price": 10000,
+   "image": "/images/shows.jpg"
     },
     {
       "id": 2,
-      "name": "Leather Boots",
+      "name": "Boots",
       "category": "Shoes",
-      "price": 89.99,
-      "image": "https://via.placeholder.com/150?text=Leather+Boots"
+      "price": 15000,
+   "image": "/images/boot.jpg"
     },
     {
       "id": 3,
-      "name": "Gold Necklace",
-      "category": "Accessories",
-      "price": 49.99,
-      "image": "https://via.placeholder.com/150?text=Gold+Necklace"
+      "name": "Dress",
+      "category": "Clothes",
+      "price": 7000,
+    "image": "/images/reddress.jpg"
+     
     },
     {
       "id": 4,
-      "name": "Sunglasses",
+      "name": "Dress",
       "category": "Accessories",
-      "price": 19.99,
-      "image": "https://via.placeholder.com/150?text=Sunglasses"
+      "price": 40000,
+    "image": "/images/yellowdress.jpg"
     },
     {
       "id": 5,
       "name": "Jacket",
       "category": "Clothes",
-      "price": 69.99,
-      "image": "https://via.placeholder.com/150?text=Denim+Jacket"
+      "price": 20000,
+    "image": "/images/yellowjacket.jpg"
     },
     {
       "id": 6,
-      "name": "T-Shirt",
-      "category": "Clothes",
-      "price": 15.99,
-      "image": "https://via.placeholder.com/150?text=T-Shirt"
+      "name": "Sunglasse",
+      "category": "Accessories",
+      "price": 6000,
+     "image": "/images/sunglss.jpg"
     },
     {
         "id": 7,
-        "name": "Short-Dress",
+        "name": "Shoes",
+        "category": "Shoes",
+        "price": 30000,
+        "image": "/images/DH.jpg"
+      }
+      ,
+    {
+        "id": 8,
+        "name": "Dress",
         "category": "Clothes",
-        "price": 200,
-        "image": "https://via.placeholder.com/150?text=T-Shirt"
+        "price": 35000,
+        "image": "/images/Dress1.jpg"
       }
   ]
   
