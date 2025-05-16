@@ -1,44 +1,42 @@
 import React, { createContext, useReducer, ReactNode } from 'react';
+import { User } from '../types/User';
 
-export type User = {
-  id: string;
-  name: string;
-  age: number;
-};
-
-type Action =
-  | { type: 'ADD_USER'; payload: User }
-  | { type: 'REMOVE_USER'; payload: string };
-
-interface UserContextType {
-  state: { users: User[] };
-  dispatch: React.Dispatch<Action>;
+interface UserState {
+  users: User[];
 }
 
-const initialState = {
-  users: [] as User[],  // Initialize users as an empty array of User type
-};
+type Action =
+  | { type: 'SET_USERS'; payload: User[] }
+  | { type: 'ADD_USER'; payload: User }
+  | { type: 'DELETE_USER'; payload: string };
 
-const userReducer = (state = initialState, action: Action) => {
+const initialState: UserState = { users: [] };
+
+const reducer = (state: UserState, action: Action): UserState => {
   switch (action.type) {
+    case 'SET_USERS':
+      return { ...state, users: action.payload };
     case 'ADD_USER':
-      return { users: [...state.users, action.payload] };
-    case 'REMOVE_USER':
-      return { users: state.users.filter(user => user.id !== action.payload) };
+      return { ...state, users: [...state.users, action.payload] };
+    case 'DELETE_USER':
+      return {
+        ...state,
+        users: state.users.filter((user) => user.id !== action.payload),
+      };
     default:
       return state;
   }
 };
 
-export const UserContext = createContext<UserContextType | null>(null);
-
-interface UserProviderProps {
-  children: ReactNode;
+interface UserContextType {
+  state: UserState;
+  dispatch: React.Dispatch<Action>;
 }
 
-export const UserProvider: React.FC<UserProviderProps> = ({ children }) => {
-  const [state, dispatch] = useReducer(userReducer, initialState);
+export const UserContext = createContext<UserContextType | undefined>(undefined);
 
+export const UserProvider = ({ children }: { children: ReactNode }) => {
+  const [state, dispatch] = useReducer(reducer, initialState);
   return (
     <UserContext.Provider value={{ state, dispatch }}>
       {children}

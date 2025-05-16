@@ -1,29 +1,21 @@
-import React, { useContext, useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
-import { UserContext } from '../context/UserContext';
+import { useUsers } from '../hooks/useUsers';
 
-const UserProfile = () => {
-  const { id } = useParams<{ id: string }>();
-  const [user, setUser] = useState<any | null>(null);
-  const context = useContext(UserContext);
+export default function UserProfile() {
+  const { id } = useParams();
+  const { state } = useUsers();
 
-  useEffect(() => {
-    if (context) {
-      const foundUser = context.state.users.find((user) => user.id === id);
-      setUser(foundUser || null);
-    }
-  }, [context, id]);
+  const user = state.users.find((u) => u.id === id);
 
-  if (!user) {
-    return <div>User not found</div>;
-  }
+  if (!user) return <p className="text-center mt-10">User not found.</p>;
 
   return (
-    <div>
-      <h1>{user.name}'s Profile</h1>
-      <p>Age: {user.age}</p>
+    <div className="max-w-xl mx-auto p-4">
+      <div className="bg-white p-6 rounded shadow-md">
+        <h2 className="text-2xl font-bold mb-4">{user.name}</h2>
+        <p className="mb-2"><strong>Email:</strong> {user.email}</p>
+        <p><strong>Age:</strong> {user.age}</p>
+      </div>
     </div>
   );
-};
-
-export default UserProfile;
+}

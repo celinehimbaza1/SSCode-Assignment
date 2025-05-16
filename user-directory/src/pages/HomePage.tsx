@@ -1,51 +1,63 @@
-import { useContext, useEffect } from 'react';
-import { Link } from 'react-router-dom';
-import { UserContext } from '../context/UserContext';
+// src/pages/HomePage.tsx
 
-const HomePage = () => {
-  const { state, dispatch } = useContext(UserContext);
+import { useEffect } from 'react';
+import { useUsers } from '../hooks/useUsers';
+import { Link } from 'react-router-dom';
+
+export default function HomePage() {
+  const { state, dispatch } = useUsers();
 
   useEffect(() => {
-    async function fetchUsers() {
-      const res = await fetch('https://jsonplaceholder.typicode.com/users');
-      const data = await res.json();
-      console.log('Fetched users:', data); // Log the fetched users to verify if data is received
-      dispatch({ type: 'SET_USERS', payload: data });
-    }
-
+    // Load users only if list is empty (so added users remain)
     if (state.users.length === 0) {
+      const fetchUsers = async () => {
+        const res = await fetch('https://jsonplaceholder.typicode.com/users');
+        const data = await res.json();
+        const formatted = data.slice(0, 6).map((u: any, i: number) => ({
+          id: u.id.toString(),
+          name: u.name,
+          email: u.email,
+          age: 20 + (i + 1),
+        }));
+        dispatch({ type: 'SET_USERS', payload: formatted });
+      };
       fetchUsers();
     }
   }, [dispatch, state.users.length]);
 
-  console.log('Users in state:', state.users);  // Log the users from the context state
+  const handleDelete = (id: string) => {
+    dispatch({ type: 'DELETE_USER', payload: id });
+  };
 
   return (
-    <div className="p-4">
-      <h1 className="text-2xl font-bold mb-4">User Directory</h1>
-
-      <ul className="space-y-4">
-        {state.users.map((user: any) => (
-          <li key={user.id} className="border p-4 rounded shadow">
-            <h2 className="font-semibold text-lg">{user.name}</h2>
-            <p className="text-sm text-gray-600">{user.email}</p>
-            <Link to={`/users/${user.id}`} className="text-blue-500 hover:underline text-sm">
-              View Profile
-            </Link>
-          </li>
+    <div className="p-4 max-w-4xl mx-auto">
+      <h1 className="text-2xl font-bold mb-4 text-center">User Directory</h1>
+      <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+        {state.users.map((user) => (
+          <div key={user.id} className="bg-white p-4 rounded shadow-md flex flex-col justify-between">
+            <div>
+              <h2 className="text-xl font-semibold">{user.name}</h2>
+            </div>
+            <div className="flex justify-between mt-4">
+              <Link to={`/user/${user.id}`} className="text-blue-600 hover:underline">
+                View user details
+              </Link>
+              <button onClick={() => handleDelete(user.id)} className="text-red-600 hover:underline">
+                Delete
+              </button>
+            </div>
+          </div>
         ))}
-      </ul>
+      </div>
 
-      <div className="mt-6">
+      <div className="text-center mt-6">
         <Link
-          to="/add-user"
-          className="inline-block bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700 transition"
+          to="/add"
+          className="bg-green-600 text-white px-6 py-2 rounded hover:bg-green-700 transition"
         >
-          ➕ Add New User
+          Add New User
         </Link>
       </div>
     </div>
   );
-};
-
-export default HomePage;
+}
